@@ -16,14 +16,22 @@
 
 ### Getting Started
 
-Just [clone] the repo and start having fun:
+Just clone the repo and start having fun:
 
 ```shell
-$ git clone -o react-starter-kit -b master --single-branch \
-      https://github.com/kriasoft/react-starter-kit.git MyApp
-$ cd MyApp
+$ git clone https://github.com/chytanya/microcredentials-client.git microcredentials-client
+$ cd microcredentials-client
 $ npm install                   # Install Node.js components listed in ./package.json
 $ npm start                     # Compile and launch
+
+If you want to update the upstream, set the upstream to this repo. 
+WARNING: This will update the master branch and might break the application with incompatibilities. 
+
+$ git remote add upstream https://github.com/kriasoft/react-starter-kit.git
+
+
+For instructions on how to update, [here](https://help.github.com/articles/syncing-a-fork/)
+
 
 ### How to Test
 
