@@ -1,0 +1,20 @@
+{
+  "name": "MicroCredentials",
+  "version": "0.0.1",
+  "homepage": "https://microcredentials.bloomboard.com",
+  "authors": [
+    "Chaitanya Mutyala <chaitanya.mutyala@gmail.com>"
+  ],
+  "description": "Bower repo for MicroCredentials",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "styles": "git@github.com:BloomBoard-Research/styles.git"
+  }
+}
