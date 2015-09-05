@@ -1,7 +1,8 @@
 /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
 
 import React, { PropTypes } from 'react';
-import styles from './App.css';
+//import styles from './App.css';
+require('./styles.sass');
 import withContext from '../../decorators/withContext';
 import withStyles from '../../decorators/withStyles';
 import Header from '../Header';
@@ -9,7 +10,7 @@ import Feedback from '../Feedback';
 import Footer from '../Footer';
 
 @withContext
-@withStyles(styles)
+//@withStyles(styles)
 class App {
 
   static propTypes = {
@@ -22,8 +23,6 @@ class App {
       <div>
         <Header />
         {this.props.children}
-        <Feedback />
-        <Footer />
       </div>
     ) : this.props.children;
   }
