@@ -31,6 +31,14 @@ const GLOBALS = {
   '__DEV__': DEBUG
 };
 
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+const sassLoaders = [
+  "css-loader",
+  "autoprefixer-loader?browsers=last 2 version",
+  "sass-loader?indentedSyntax=sass&includePaths[]=" + path.resolve(__dirname, "./src"),
+];
+
 //
 // Common configuration chunk to be used for both
 // client-side (app.js) and server-side (server.js) bundles
@@ -58,11 +66,16 @@ const config = {
   },
 
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin()
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new ExtractTextPlugin("[name].css", {
+      disable: false,
+      allChunks: true
+    }),
   ],
 
   resolve: {
-    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx']
+    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', '.sass'],
+    modulesDirectories: ['src', 'node_modules', 'bower_components']
   },
 
   module: {
@@ -100,6 +113,13 @@ const config = {
         path.resolve(__dirname, '../src')
       ],
       loaders: [...(WATCH && ['react-hot']), 'babel-loader']
+   }, { 
+     //test: /\.sass$/, 
+     //loaders: ['style', 'css', 'sass']
+   // }, {
+    test: /\.sass$/,
+   //   loader: ExtractTextPlugin.extract("style-loader", sassLoaders.join("!")),
+      loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
     }]
   },
 
@@ -184,7 +204,7 @@ const serverConfig = merge({}, config, {
     loaders: [...config.module.loaders, {
       test: /\.css$/,
       loader: `${CSS_LOADER}!postcss-loader`
-    }]
+      }]
   }
 });
 
