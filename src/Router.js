@@ -11,6 +11,8 @@ import RegisterPage from './components/RegisterPage';
 import NotFoundPage from './components/NotFoundPage';
 import ErrorPage from './components/ErrorPage';
 
+import HomePage from './components/pages/home';
+
 const router = new Router(on => {
 
   on('*', async (state, next) => {
@@ -23,6 +25,8 @@ const router = new Router(on => {
   on('/login', async () => <LoginPage />);
 
   on('/register', async () => <RegisterPage />);
+
+  on('/home', async () => <HomePage />);
 
   on('*', async (state) => {
     const content = await http.get(`/api/content?path=${state.path}`);

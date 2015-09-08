@@ -22,7 +22,9 @@ class App {
     return !this.props.error ? (
       <div>
         <Header />
-        {this.props.children}
+        <div className="app-content">
+          {this.props.children}
+        </div>
       </div>
     ) : this.props.children;
   }
