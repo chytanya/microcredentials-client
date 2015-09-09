@@ -1,8 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-window.React = require('react/addons');
-
-var ReactCSSTransitionGroup = window.React.addons.CSSTransitionGroup;
-var PureRenderMixin         = window.React.addons.PureRenderMixin;
+import {ReactCSSTransitionGroup, PureRenderMixin} from 'react/addons';
 
 require('./styles.sass');
 

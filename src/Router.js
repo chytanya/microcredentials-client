@@ -26,7 +26,7 @@ const router = new Router(on => {
 
   on('/register', async () => <RegisterPage />);
 
-  on('/home', async () => <HomePage />);
+  on('/', async () => <HomePage />);
 
   on('*', async (state) => {
     const content = await http.get(`/api/content?path=${state.path}`);
