@@ -6,3 +6,5 @@ node_modules
 bower_components
 ncp-debug.log
 npm-debug.log
+
+.idea

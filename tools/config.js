@@ -114,7 +114,7 @@ const config = {
         path.resolve(__dirname, '../src')
       ],
       loaders: [...(WATCH && ['react-hot']), 'babel-loader']
-   }, {
+    }, { 
     test: /\.sass$/,
       loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader?indentedSyntax")
     }]
