@@ -1,8 +1,7 @@
-import React, {ReactTransitionGroup, Component, PropTypes} from 'react';
-window.React = require('react/addons');
-var ReactCSSTransitionGroup = window.React.addons.CSSTransitionGroup;
+import React, {ReactTransitionGroup, Component, PropTypes} from 'react/addons';
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
-require('./styles.sass');
+// require('./styles.sass');
 
 var MicroCredentialCard = require('../MicroCredentialCard');
 

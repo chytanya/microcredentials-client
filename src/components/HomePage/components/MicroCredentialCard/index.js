@@ -1,10 +1,8 @@
-import React, {Component, PropTypes} from 'react';
-window.React = require('react/addons');
+import React, {Component, PropTypes} from 'react/addons';
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
+var PureRenderMixin         = React.addons.PureRenderMixin;
 
-var ReactCSSTransitionGroup = window.React.addons.CSSTransitionGroup;
-var PureRenderMixin         = window.React.addons.PureRenderMixin;
-
-require('./styles.sass');
+// require('./styles.sass');
 
 class MicroCredentialCard extends Component {
 
