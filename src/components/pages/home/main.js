@@ -1,18 +1,54 @@
-import React, { PropTypes } from 'react';
+import React, { Component,  PropTypes } from 'react';
 require('./styles.sass');
 import Header from '../../Header';
 
-class Home {
+import connectToStores from 'alt/utils/connectToStores';
+var TodoStore = require('../../../stores/TodoStore');
+var TodoActions =  require('../../../actions/TodoActions');
 
-  static propTypes = {
-  };
+// var MicroCredentialStore = require('../../../stores/MicroCredentialStore');
+// var MicroCredentialActions =  require('../../../actions/MicroCredentialActions');
+
+var ProviderStore = require('../../../stores/ProviderStore');
+var ProviderActions =  require('../../../actions/ProviderActions');
+
+@connectToStores
+
+class Home extends Component{
+
+  constructor(props) {
+    super(props)
+    this.onChange = this.onChange.bind(this)
+  }
+
+  static getStores() {
+    return [ProviderStore];
+  }
+
+  static getPropsFromStores() {
+    return ProviderStore.getState();
+  }
+
+  componentDidMount () {
+    ProviderActions.fetchProvider();
+  }
+
+  onChange () {
+    this.setState(ProviderStore.getState());
+  }
+
+  componentWillMount() {
+    const stores = [ProviderStore]
+    stores.forEach(store => store.listen(this.onChange))
+  }
 
   render() {
-    let provider = {'name': this.state && this.state.provider ? this.state.provider.name : '' };
 
-    if(provider.name){
+    let providerMeta = {'name': this.state && this.state.provider ? this.state.provider.name : '' };
+    
+    if(!providerMeta.name){
       return (
-        <div class="loading">Loading..</div>
+        <div className="loading">Loading..</div>
       );
     }
 
@@ -41,7 +77,6 @@ class Home {
           </div>
         </header>
         <section className="micro-credentials-page">
-            Micro credentials here
         </section>
       </div>
     );

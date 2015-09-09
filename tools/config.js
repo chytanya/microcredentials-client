@@ -114,11 +114,7 @@ const config = {
       ],
       loaders: [...(WATCH && ['react-hot']), 'babel-loader']
    }, { 
-     //test: /\.sass$/, 
-     //loaders: ['style', 'css', 'sass']
-   // }, {
     test: /\.sass$/,
-   //   loader: ExtractTextPlugin.extract("style-loader", sassLoaders.join("!")),
       loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
     }]
   },
