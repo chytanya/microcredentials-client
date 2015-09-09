@@ -5,9 +5,9 @@ import connectToStores from 'alt/utils/connectToStores';
 var ProviderStore = require('../../stores/ProviderStore');
 var ProviderActions =  require('../../actions/ProviderActions');
 
-require('./styles.sass');
+import styles from './styles.sass';
 
-var MicroCredentialsList = require('./components/MicroCredentialsList');
+var MicroCredentialsList = require('./components/MicroCredentialList');
 
 @connectToStores
 class Home extends Component{

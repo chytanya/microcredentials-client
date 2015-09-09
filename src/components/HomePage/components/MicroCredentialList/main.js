@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 var MicroCredentialGroup = require('../MicroCredentialGroup');
 
-require('./styles.sass');
+// require('./styles.sass');
 
 class MicroCredentialsList extends Component {
 
