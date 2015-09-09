@@ -1,0 +1,61 @@
+.example-appear
+  opacity: 0.01
+.example-appear.example-appear-active
+  opacity: 1
+  transition: opacity 0.5s ease-in
+
+.slideInUp
+  -webkit-animation-name: slideInUp
+  animation-name: slideInUp
+  -webkit-animation-duration: 1s
+  animation-duration: 1s
+  -webkit-animation-fill-mode: both
+  animation-fill-mode: both
+
+@-webkit-keyframes slideInUp
+  0%
+    -webkit-transform: translateY(100%)
+    transform: translateY(100%)
+    visibility: visible
+
+  100%
+    -webkit-transform: translateY(0)
+    transform: translateY(0)
+
+@keyframes slideInUp
+  0%
+    -webkit-transform: translateY(100%)
+    transform: translateY(100%)
+    visibility: visible
+
+  100%
+    -webkit-transform: translateY(0)
+    transform: translateY(0)
+
+
+.micro-credentials-group
+    position: relative
+    display: inline-block
+    width: 100%
+    margin-top: 20px
+    padding-top: 20px
+    .header
+      color: #888
+      font-size: 16px
+      font-weight: bold
+      margin-top: 20px
+      margin-bottom: 10px
+      z-index: 1
+      background-color: white
+      display: inline
+      .highlight
+        color: #000
+    .separator
+        border: 2px solid #000
+        height: 1px;
+        background: #000
+        position: absolute
+        left: 0
+        top: 28px
+        width: 100%
+        z-index: -1

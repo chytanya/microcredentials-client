@@ -11,7 +11,7 @@ import RegisterPage from './components/RegisterPage';
 import NotFoundPage from './components/NotFoundPage';
 import ErrorPage from './components/ErrorPage';
 
-import HomePage from './components/pages/home';
+import HomePage from './components/HomePage';
 
 const router = new Router(on => {
 

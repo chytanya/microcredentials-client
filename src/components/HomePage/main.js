@@ -1,19 +1,15 @@
 import React, { Component,  PropTypes } from 'react';
-require('./styles.sass');
-import Header from '../../Header';
-
+import Header from '../Header';
 import connectToStores from 'alt/utils/connectToStores';
-var TodoStore = require('../../../stores/TodoStore');
-var TodoActions =  require('../../../actions/TodoActions');
 
-// var MicroCredentialStore = require('../../../stores/MicroCredentialStore');
-// var MicroCredentialActions =  require('../../../actions/MicroCredentialActions');
+var ProviderStore = require('../../stores/ProviderStore');
+var ProviderActions =  require('../../actions/ProviderActions');
 
-var ProviderStore = require('../../../stores/ProviderStore');
-var ProviderActions =  require('../../../actions/ProviderActions');
+require('./styles.sass');
+
+var MicroCredentialsList = require('./components/MicroCredentialsList');
 
 @connectToStores
-
 class Home extends Component{
 
   constructor(props) {
@@ -77,6 +73,7 @@ class Home extends Component{
           </div>
         </header>
         <section className="micro-credentials-page">
+          <MicroCredentialsList provider={providerMeta} microCredentialGroups={this.state.provider.microCredentialGroups} />
         </section>
       </div>
     );
