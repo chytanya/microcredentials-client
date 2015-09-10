@@ -3,8 +3,8 @@ import Api from './base';
 let api = new Api();
 
 class ProviderAPI {
-  getDetails(microCredentialId) {
-    return api.get(`micro_credentials/${microCredentialId}.json`);
+  getDetails(providerId) {
+    return api.get(`mc_providers/${providerId}/micro_credentials.json`);
   }
 }
 

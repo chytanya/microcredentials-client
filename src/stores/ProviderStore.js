@@ -12,7 +12,9 @@ class ProviderStore {
       handleFetchProvider: ProviderActions.FETCH_PROVIDER,
       handleProviderFailed: ProviderActions.PROVIDER_FAILED
     });
-    this.state = {'provider' : null};
+    this.state = {
+      provider: null
+    };
     this.errorMessage = null;
   }
 
@@ -32,7 +34,7 @@ class ProviderStore {
       });
     });
     provider.microCredentialGroups = microCredentialGroups;
-    
+
     this.setState({
       provider: provider
     });

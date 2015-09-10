@@ -26,7 +26,7 @@ class Home extends Component{
   }
 
   componentDidMount () {
-    ProviderActions.fetchProvider(1);
+
   }
 
   onChange () {
@@ -34,13 +34,14 @@ class Home extends Component{
   }
 
   componentWillMount() {
-    const stores = [ProviderStore]
-    stores.forEach(store => store.listen(this.onChange))
+    const stores = [ProviderStore];
+    stores.forEach(store => store.listen(this.onChange));
+    ProviderActions.fetchProvider(1);
   }
 
   render() {
 
-    let providerMeta = {'name': this.state && this.state.provider ? this.state.provider.name : '' };
+    // let providerMeta = {'name': (this.state.provider) ? this.state.provider.name : '' };
 
     let styles1 = {
       opacity: '1',
@@ -51,8 +52,10 @@ class Home extends Component{
       backgroundImage: 'url(http://api.randomuser.me/portraits/thumb/women/43.jpg)'
     };
 
+    // debugger;
+
     return (
-      <If condition={providerMeta.name}>
+      <If condition={this.state.provider}>
         <div>
           <header className="mc-banner">
             <div className="mc-banner-overlay">
@@ -68,7 +71,7 @@ class Home extends Component{
             </div>
           </header>
           <section className="micro-credentials-page">
-            <MicroCredentialsList provider={providerMeta} microCredentialGroups={this.state.provider.microCredentialGroups} />
+            <MicroCredentialsList provider={this.state.provider} microCredentialGroups={this.state.provider.microCredentialGroups} />
           </section>
         </div>
       <Else/>
