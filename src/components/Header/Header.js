@@ -4,7 +4,6 @@ import React from 'react';
 require('./styles.sass');
 import withStyles from '../../decorators/withStyles';
 import Link from '../Link';
-import Navigation from '../Navigation';
 
 class Header {
 

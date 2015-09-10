@@ -25,23 +25,23 @@ class Home extends Component{
     return ProviderStore.getState();
   }
 
-  componentDidMount () {
+  componentDidMount() {
+    [ProviderStore].forEach(store => store.listen(this.onChange));
+  }
 
+  componentWillMount() {
+    ProviderActions.fetchProvider(1);
+  }
+
+  componentWillUnmount() {
+    [ProviderStore].forEach(store => store.unlisten(this.onChange));
   }
 
   onChange () {
     this.setState(ProviderStore.getState());
   }
 
-  componentWillMount() {
-    const stores = [ProviderStore];
-    stores.forEach(store => store.listen(this.onChange));
-    ProviderActions.fetchProvider(1);
-  }
-
   render() {
-
-    // let providerMeta = {'name': (this.state.provider) ? this.state.provider.name : '' };
 
     let styles1 = {
       opacity: '1',
@@ -52,10 +52,8 @@ class Home extends Component{
       backgroundImage: 'url(http://api.randomuser.me/portraits/thumb/women/43.jpg)'
     };
 
-    // debugger;
-
     return (
-      <If condition={this.state.provider}>
+      <If condition={this.state && this.state.provider}>
         <div>
           <header className="mc-banner">
             <div className="mc-banner-overlay">
