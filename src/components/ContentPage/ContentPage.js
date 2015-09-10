@@ -1,10 +1,9 @@
 /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
 
 import React, { PropTypes } from 'react';
-import styles from './ContentPage.css';
+require('./styles.sass');
 import withStyles from '../../decorators/withStyles';
 
-@withStyles(styles)
 class ContentPage {
 
   static propTypes = {

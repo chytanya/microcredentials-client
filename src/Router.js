@@ -9,6 +9,7 @@ import NotFoundPage from './components/NotFoundPage';
 import ErrorPage from './components/ErrorPage';
 
 import HomePage from './components/HomePage';
+import ProfilePage from './components/ProfilePage';
 
 const router = new Router(on => {
 
@@ -18,6 +19,7 @@ const router = new Router(on => {
   });
 
   on('/', async () => <HomePage />);
+  on('/my-profile', async () => <ProfilePage />);
 
   on('*', async (state) => {
     const content = await http.get(`/api/content?path=${state.path}`);
