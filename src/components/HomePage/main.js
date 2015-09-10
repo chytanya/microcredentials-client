@@ -42,12 +42,6 @@ class Home extends Component{
 
     let providerMeta = {'name': this.state && this.state.provider ? this.state.provider.name : '' };
 
-    if(!providerMeta.name){
-      return (
-        <div className="loading">Loading..</div>
-      );
-    }
-
     let styles1 = {
       opacity: '1',
       transform: 'translate3d(0px, 0px, 0px)'
@@ -58,24 +52,28 @@ class Home extends Component{
     };
 
     return (
-      <div>
-        <header className="mc-banner">
-          <div className="mc-banner-overlay">
-            <div className="contain" style={styles1}>
-              <div className="mc-banner-title"></div>
-              <div className="mc-banner-host">
-                Micro-Credentials, powered by: <span className="mc-banner-host-name">BloomBoard</span>
-              </div>
-              <div className="mc-banner-description">
-                Some awesome text about Digital Promise and the trend to competency based micro-credentialing.
+      <If condition={providerMeta.name}>
+        <div>
+          <header className="mc-banner">
+            <div className="mc-banner-overlay">
+              <div className="contain" style={styles1}>
+                <div className="mc-banner-title"></div>
+                <div className="mc-banner-host">
+                  Micro-Credentials, powered by: <span className="mc-banner-host-name">BloomBoard</span>
+                </div>
+                <div className="mc-banner-description">
+                  Some awesome text about Digital Promise and the trend to competency based micro-credentialing.
+                </div>
               </div>
             </div>
-          </div>
-        </header>
-        <section className="micro-credentials-page">
-          <MicroCredentialsList provider={providerMeta} microCredentialGroups={this.state.provider.microCredentialGroups} />
-        </section>
-      </div>
+          </header>
+          <section className="micro-credentials-page">
+            <MicroCredentialsList provider={providerMeta} microCredentialGroups={this.state.provider.microCredentialGroups} />
+          </section>
+        </div>
+      <Else/>
+        <div className="loading">Loading..</div>
+      </If>
     );
   }
 
