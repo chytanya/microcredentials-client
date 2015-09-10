@@ -26,7 +26,7 @@ class Home extends Component{
   }
 
   componentDidMount () {
-    ProviderActions.fetchProvider();
+    ProviderActions.fetchProvider(1);
   }
 
   onChange () {
@@ -41,7 +41,7 @@ class Home extends Component{
   render() {
 
     let providerMeta = {'name': this.state && this.state.provider ? this.state.provider.name : '' };
-    
+
     if(!providerMeta.name){
       return (
         <div className="loading">Loading..</div>

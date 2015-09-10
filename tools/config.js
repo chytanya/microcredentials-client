@@ -72,6 +72,12 @@ const config = {
       disable: false,
       allChunks: true
     }),
+    new webpack.ProvidePlugin({
+      'Promise': 'bluebird'
+    }),
+    new webpack.ProvidePlugin({
+      'superagent': 'superagent'
+    })
   ],
 
   resolve: {
@@ -114,9 +120,9 @@ const config = {
         path.resolve(__dirname, '../src')
       ],
       loaders: [...(WATCH && ['react-hot']), 'babel-loader']
-    }, { 
+    }, {
     test: /\.sass$/,
-      loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader?indentedSyntax")
+      loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader?sourceMap&indentedSyntax")
     }]
   },
 

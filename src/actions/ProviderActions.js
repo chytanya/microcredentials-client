@@ -8,9 +8,9 @@ let providerAPI = new ProviderAPI();
 
 class ProviderActions {
 
-  fetchProvider() {
+  fetchProvider(providerId) {
     this.dispatch();
-    providerAPI.getDetails()
+    providerAPI.getDetails(providerId)
       .then((provider) => {
         this.actions.updateProvider(provider);
       })
